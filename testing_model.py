@@ -4,6 +4,7 @@ from PIL import Image
 import glob
 
 
+###functions###
 def logistic_fun(z):
     return 1 / (1.0 + np.exp(-z))
 
@@ -24,45 +25,64 @@ def prepare_data(path_for_dog_folder, path_for_cat_folder):
     return (test_cat_images, test_cat_images)
 
 
-sess = tf.Session()
-# First let's load meta graph and restore weights
-saver = tf.train.import_meta_graph(
-    r'C:\Users\evgen\Desktop\ML\V2\saved_model(2)\model.ckpt-100.meta')
-saver.restore(sess,
-              tf.train.latest_checkpoint(r'C:\Users\evgen\Desktop\ML\V2\saved_model(2)'))
+def load_model(path_for_model, name_for_model):
+    sess = tf.Session()
+    # First let's load meta graph and restore weights
+    saver = tf.train.import_meta_graph(
+        path_for_model + name_for_model)
+    saver.restore(sess,
+                  tf.train.latest_checkpoint(path_for_model))
 
-graph = tf.get_default_graph()
-x = graph.get_tensor_by_name("xs:0")
-y_ = graph.get_tensor_by_name("y_s:0")
-W = graph.get_tensor_by_name("Ws:0")
-b = graph.get_tensor_by_name("bs:0")
-y = graph.get_tensor_by_name("model_func:0")
-loss = graph.get_tensor_by_name("loss_func:0")
+    graph = tf.get_default_graph()
+    W = graph.get_tensor_by_name("Ws:0")
+    b = graph.get_tensor_by_name("bs:0")
+    return (sess, W, b)
 
-path_for_dog_test = r'C:\Users\evgen\Desktop\ML\V2\test_set\dogs\*.jpg'
-path_for_cat_test = r'C:\Users\evgen\Desktop\ML\V2\test_set\cats\*.jpg'
-tuples_of_all_data = prepare_data(path_for_dog_test, path_for_cat_test)
-pred_for_dog = []
-pred_for_cat = []
 
-for dog_image in tuples_of_all_data[0]:
-    pred_for_dog.append(return_class(logistic_fun(np.matmul(dog_image, sess.run(W)) + sess.run(b))))
+###main###
+def main():
+    path_for_model = r'C:\Users\evgen\Desktop\ML\V2\saved_model'
+    print(path_for_model)
+    name_for_model = r'\model.ckpt-100.meta'
+    path_for_dog_test = r'C:\Users\evgen\Desktop\ML\V2\test_set\dogs\*.jpg'
+    path_for_cat_test = r'C:\Users\evgen\Desktop\ML\V2\test_set\cats\*.jpg'
+    tuples_of_all_data = prepare_data(path_for_dog_test, path_for_cat_test)
 
-num_of_dogs_recognized = 0
-for _class in pred_for_dog:
-    if _class == 'DOG':
-        num_of_dogs_recognized += 1
+    pred_for_dog = []
+    pred_for_cat = []
+    (sess, W, b) = load_model(path_for_model, name_for_model)
+    for dog_image in tuples_of_all_data[0]:
+        pred_for_dog.append(return_class(logistic_fun(np.matmul(dog_image, sess.run(W)) + sess.run(b))))
 
-for cat_image in tuples_of_all_data[1]:
-    pred_for_cat.append(return_class(logistic_fun(np.matmul(cat_image, sess.run(W)) + sess.run(b))))
+    num_of_dogs_recognized = 0
+    for _class in pred_for_dog:
+        if _class == 'DOG':
+            num_of_dogs_recognized += 1
 
-num_of_cats_recognized = 0
-for _class in pred_for_cat:
-    if _class == 'CAT':
-        num_of_cats_recognized += 1
+    for cat_image in tuples_of_all_data[1]:
+        pred_for_cat.append(return_class(logistic_fun(np.matmul(cat_image, sess.run(W)) + sess.run(b))))
 
-print('                         ***actual class***\n                            DOG:           CAT:')
-print('***Predicted class***')
-print('                      dog   ', num_of_dogs_recognized, '             ', num_of_cats_recognized)
-print('                      cat   ', len(pred_for_dog) - num_of_dogs_recognized, '             ',len(pred_for_cat) - num_of_cats_recognized )
+    num_of_cats_recognized = 0
+    for _class in pred_for_cat:
+        if _class == 'CAT':
+            num_of_cats_recognized += 1
 
+    print('                         ***actual class***\n                            DOG:           CAT:')
+    print('***Predicted class***')
+    print('                      dog   ', num_of_dogs_recognized, '             ', num_of_cats_recognized)
+    print('                      cat   ', len(pred_for_dog) - num_of_dogs_recognized, '             ',
+          len(pred_for_cat) - num_of_cats_recognized)
+
+    accuracy = ((num_of_cats_recognized + num_of_dogs_recognized) / (len(pred_for_dog) + len(pred_for_cat)))
+    precision = num_of_dogs_recognized / (num_of_dogs_recognized + (len(pred_for_dog) - num_of_dogs_recognized))
+    recall = num_of_dogs_recognized / (num_of_dogs_recognized + (len(pred_for_cat) - num_of_cats_recognized))
+
+    print('model tasted from path: ', path_for_model)
+    print('accuracy: %.3f' % (accuracy))
+    print('precision: %.3f ' % (precision))
+    print('recall: %.3f ' % (recall))
+    print('f-measure: %.3f ' % (2 * ((precision * recall) / (precision + recall))))
+
+
+if __name__ == '__main__':
+    main()
