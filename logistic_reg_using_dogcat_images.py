@@ -22,11 +22,9 @@ def read_images(path_for_cat_folder, path_for_dog_folder):
     dog_folder = path_for_dog_folder
     cat_image_list = []
     dog_image_list = []
-
     for filename in glob.glob(cat_folder):
         im = Image.open(filename)
         cat_image_list.append(np.reshape(im, (100 * 100)) / 255.)
-
     for filename in glob.glob(dog_folder):
         im = Image.open(filename)
         dog_image_list.append(np.reshape(im, (100 * 100)) / 255.)
