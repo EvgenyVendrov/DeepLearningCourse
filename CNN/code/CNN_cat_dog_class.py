@@ -1,4 +1,6 @@
-import tensorflow as tf
+from tensorflow.keras import Sequential
+from tensorflow.keras.layers import Conv2D,MaxPooling2D,Flatten,Dense
+
 import numpy as np
 from PIL import Image
 import glob
@@ -23,7 +25,6 @@ def read_images(path_for_train_folder):
     return all_data_tuples
 
 
-
 def shuffle_images(tuple_of_both_images_sets):
     shuff_tuples = random.shuffle(tuple_of_both_images_sets)
     return shuff_tuples
@@ -42,7 +43,7 @@ def prepare_data(path_for_train_folder):
 
     data_x = np.asarray(train_data_x)
     data_y = np.asarray(train_data_y)
-    return (data_x,data_y)
+    return (data_x, data_y)
 
 
 def main():
@@ -50,12 +51,17 @@ def main():
     print(data_x.shape)
     print(data_y.shape)
     ###notice that this is just an example for now
-    model = tf.keras.Sequential([
-        tf.keras.layers.Dropout(rate=0.2, input_shape=data_x.shape[1:]),
-        tf.keras.layers.Dense(units=64, activation='relu'),
-        tf.keras.layers.Dropout(rate=0.2),
-        tf.keras.layers.Dense(units=1, activation='sigmoid')
-    ])
+    model = Sequential()
+    model.add(
+        Conv2D(32, (3, 3), activation='relu', kernel_initializer='he_uniform', padding='same', input_shape=(200, 200, 3)))
+    model.add(MaxPooling2D((2, 2)))
+    model.add(Conv2D(64, (3, 3), activation='relu', kernel_initializer='he_uniform', padding='same'))
+    model.add(MaxPooling2D((2, 2)))
+    model.add(Conv2D(128, (3, 3), activation='relu', kernel_initializer='he_uniform', padding='same'))
+    model.add(MaxPooling2D((2, 2)))
+    model.add(Flatten())
+    model.add(Dense(128, activation='relu', kernel_initializer='he_uniform'))
+    model.add(Dense(1, activation='sigmoid'))
 
 
 if __name__ == '__main__':
