@@ -89,9 +89,7 @@ def main():
     (data_x, data_y) = prepare_data(r"C:\Users\evgen\Desktop\data_set_for_3rdProj\train\*.jpg")
     (val_x, val_y) = prepare_data(r"C:\Users\evgen\Desktop\data_set_for_3rdProj\validation\*.jpg")
     (test_x, test_y) = prepare_data(r"C:\Users\evgen\Desktop\data_set_for_3rdProj\test\*.jpg")
-    print(data_x.shape)
-    print(data_y.shape)
-    ##notice that this is just an example for now
+
     ##building the model
     model = Sequential()
     model.add(
@@ -117,34 +115,18 @@ def main():
                         validation_data=(val_x, val_y))
     print('\nhistory dict:', history.history)
 
-    #model.save(r"C:\Users\evgen\Desktop\models\model.h5", True / False, False)
+
     json_str = model.to_json()
     with open(r'C:\Users\evgen\Desktop\models\saved_model.json', 'w') as outfile:
         json.dump(json.loads(json_str), outfile, indent=4)    # Save the json on a file
     model.save_weights(r"C:\Users\evgen\Desktop\models\weights.h5", save_format="h5")
-    # model_json = model.to_json()
-    # with open(r"C:\Users\evgen\Desktop\models\model.h5", "w") as json_file:
-    #     json_file.write(model_json)
-    #     # serialize weights to HDF5
-    #     model.save_weights("model.h5")
     print("Saved model to disk")
     # summarize_diagnostics(history)
-    #
+
     # Evaluate the model on the test data using `evaluate`
     print('\n# Evaluate on test data')
     results = model.evaluate(test_x, test_y, batch_size=128)
     print('test loss, test acc:', results)
-
-    # # Generate predictions (probabilities -- the output of the last layer)
-    # # on new data using `predict`
-    # # print('\n# Generate predictions for 3 samples')
-    # # predictions = model.predict(x_test[:3])
-    # # print('predictions shape:', predictions.shape)
-    ##SAVING - NOT NEEDED
-    # # saver.save(sess, path_to_save_model,
-    # #            global_step=100, write_meta_graph='false')
-    # #
-
 
 if __name__ == '__main__':
     main()
