@@ -1,10 +1,223 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="50d5c71a-8501-414b-80d9-daaa5e399fb4" name="Default Changelist" comment="prepare data added">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CNN/code/testing_load_model_CNN.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CNN/code/CNN_cat_dog_class.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN/code/CNN_cat_dog_class.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CNN/code/prepare_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN/code/prepare_data.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1WISm2cnWM8mR5gWy4eo8jnGG2d" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager" selected="Python.testing_load_model_CNN">
+    <configuration name="CNN_cat_dog_class" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DL_Git_forAllProj" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CNN/code" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CNN/code/CNN_cat_dog_class.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="prepare_data" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DL_Git_forAllProj" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CNN/code" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CNN/code/prepare_data.py" />
+      <option name="PARAMETERS" value="&quot;C:\Users\evgen\Desktop\ML\DOG&amp;CAT DATA\colored\training_set\training_set\dogs&quot; &quot;C:\Users\evgen\Desktop\ML\DOG&amp;CAT DATA\colored\training_set\training_set\cats&quot; &quot;C:\Users\evgen\Desktop\ML\DOG&amp;CAT DATA\colored\test_set\test_set\dogs&quot; &quot;C:\Users\evgen\Desktop\ML\DOG&amp;CAT DATA\colored\test_set\test_set\cats&quot; &quot;jpg&quot; &quot;C:\Users\evgen\Desktop\data_set_for_3rdProj\train&quot; &quot;C:\Users\evgen\Desktop\data_set_for_3rdProj\test&quot;" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="testing_load_model_CNN" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DL_Git_forAllProj" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CNN/code" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CNN/code/testing_load_model_CNN.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.prepare_data" />
+      <item itemvalue="Python.CNN_cat_dog_class" />
+      <item itemvalue="Python.testing_load_model_CNN" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.testing_load_model_CNN" />
+        <item itemvalue="Python.CNN_cat_dog_class" />
+        <item itemvalue="Python.prepare_data" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="50d5c71a-8501-414b-80d9-daaa5e399fb4" name="Default Changelist" comment="" />
+      <created>1578835770835</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1578835770835</updated>
+    </task>
+    <task id="LOCAL‎00001" summary="constracting files">
+      <created>1578835821821</created>
+      <option name="number" value="LOCAL‎00001" />
+      <option name="presentableId" value="LOCAL‎00001" />
+      <updated>1578835821821</updated>
+    </task>
+    <task id="LOCAL‎00002" summary="adding new files">
+      <created>1578835947054</created>
+      <option name="number" value="LOCAL‎00002" />
+      <option name="presentableId" value="LOCAL‎00002" />
+      <updated>1578835947054</updated>
+    </task>
+    <task id="LOCAL‎00003" summary="prepare data added">
+      <created>1578911122629</created>
+      <option name="number" value="LOCAL‎00003" />
+      <option name="presentableId" value="LOCAL‎00003" />
+      <updated>1578911122629</updated>
+    </task>
+    <task id="LOCAL‎00004" summary="prepare data changed for the better">
+      <created>1578913003214</created>
+      <option name="number" value="LOCAL‎00004" />
+      <option name="presentableId" value="LOCAL‎00004" />
+      <updated>1578913003214</updated>
+    </task>
+    <task id="LOCAL‎00005" summary="some new code is added">
+      <created>1578916683808</created>
+      <option name="number" value="LOCAL‎00005" />
+      <option name="presentableId" value="LOCAL‎00005" />
+      <updated>1578916683808</updated>
+    </task>
+    <task id="LOCAL‎00006" summary="code now changed to fit TF usage which is allowed">
+      <created>1578917239022</created>
+      <option name="number" value="LOCAL‎00006" />
+      <option name="presentableId" value="LOCAL‎00006" />
+      <updated>1578917239022</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="constracting files" />
+    <MESSAGE value="adding new files" />
+    <MESSAGE value="prepare data added" />
+    <MESSAGE value="prepare data changed for the better" />
+    <MESSAGE value="some new code is added" />
+    <MESSAGE value="code now changed to fit TF usage which is allowed" />
+    <option name="LAST_COMMIT_MESSAGE" value="code now changed to fit TF usage which is allowed" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="412" y="146" width="1434" height="708" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578916161682">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="412" y="146" width="1434" height="708" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578916161682" />
+    <state x="613" y="116" key="CommitChangelistDialog2" timestamp="1578917237597">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="613" y="116" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1578917237597" />
+    <state width="1897" height="281" key="GridCell.Tab.0.bottom" timestamp="1578995889717">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1897" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578995889717" />
+    <state width="1897" height="281" key="GridCell.Tab.0.center" timestamp="1578995889717">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1897" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578995889717" />
+    <state width="1897" height="281" key="GridCell.Tab.0.left" timestamp="1578995889717">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1897" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578995889717" />
+    <state width="1897" height="281" key="GridCell.Tab.0.right" timestamp="1578995889717">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1897" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578995889717" />
+    <state x="460" y="162" key="SettingsEditor" timestamp="1578911070542">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="460" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1578911070542" />
+    <state x="551" y="253" key="Vcs.Push.Dialog.v2" timestamp="1578917241273">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="551" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1578917241273" />
+    <state x="655" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1578908066963">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="655" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578908066963" />
   </component>
 </project>
