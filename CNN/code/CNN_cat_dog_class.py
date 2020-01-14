@@ -67,24 +67,8 @@ def summarize_diagnostics(history):
     pyplot.close()
 
 
-#
-#
-# def train_loop(features, labels):
-#     # Define the GradientTape context
-#     with tf.GradientTape() as tape:
-#         # Get the probabilities
-#         predictions = model(features)
-#         # Calculate the loss
-#         loss = loss_func(labels, predictions)
-#     # Get the gradients
-#     gradients = tape.gradient(loss, model.trainable_variables)
-#     # Update the weights
-#     optimizer.apply_gradients(zip(gradients, model.trainable_variables))
-#     return loss
-
-
 def main():
-    num_of_epochs = 1
+    num_of_epochs = 5
     # preparing the data
     (data_x, data_y) = prepare_data(r"C:\Users\evgen\Desktop\data_set_for_3rdProj\train\*.jpg")
     (val_x, val_y) = prepare_data(r"C:\Users\evgen\Desktop\data_set_for_3rdProj\validation\*.jpg")
@@ -117,9 +101,9 @@ def main():
 
 
     json_str = model.to_json()
-    with open(r'C:\Users\evgen\Desktop\models\saved_model.json', 'w') as outfile:
+    with open(r'C:\Users\evgen\Desktop\models\saved_model_5ep.json', 'w') as outfile:
         json.dump(json.loads(json_str), outfile, indent=4)    # Save the json on a file
-    model.save_weights(r"C:\Users\evgen\Desktop\models\weights.h5", save_format="h5")
+    model.save_weights(r"C:\Users\evgen\Desktop\models\weights_5ep.h5", save_format="h5")
     print("Saved model to disk")
     # summarize_diagnostics(history)
 
