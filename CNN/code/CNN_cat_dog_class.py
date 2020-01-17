@@ -1,116 +1,109 @@
-import tensorflow as tf
 from tensorflow.keras import Sequential
-from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
-from matplotlib import pyplot
-import numpy as np
-from PIL import Image
-import glob
-import random
-import sys
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import json
+import os
+import matplotlib.pyplot as plt
 
+###compilation flags to make TF more efficient
+os.environ["OMP_NUM_THREADS"] = "NUM_PARALLEL_EXEC_UNITS"
+os.environ["KMP_BLOCKTIME"] = "30"
+os.environ["KMP_SETTINGS"] = "1"
+os.environ["KMP_AFFINITY"] = "granularity=fine,verbose,compact,1,0"
+os.environ['TF_ENABLE_WINOGRAD_NONFUSED'] = '1'
 
-
-###
-###!!!!!DOG=>0\\\\\CAT=>1!!!!!!#############
-###
-
-###functions###
-def read_images(path_for_train_folder):
-    all_data_tuples = []
-    for filename in glob.glob(path_for_train_folder):
-        im = Image.open(filename)
-        np_array = (np.reshape(im, ((200, 200, 3))))
-        if "dog" in filename:
-            all_data_tuples.append((np_array, 0))
-        else:
-            all_data_tuples.append((np_array, 1))
-    return all_data_tuples
-
-
-def shuffle_images(tuple_of_both_images_sets):
-    shuff_tuples = random.shuffle(tuple_of_both_images_sets)
-    return shuff_tuples
-
-
-def prepare_data(path_for_train_folder):
-    all_train_set_tuples = read_images(path_for_train_folder)
-    shuffled_tuples_of_all_data = random.sample(all_train_set_tuples, len(all_train_set_tuples))
-    train_data_x = []
-    train_data_y = []
-
-    for tuple_of_image_class in shuffled_tuples_of_all_data:
-        train_data_x.append(tuple_of_image_class[0])
-    for tuple_of_image_class in shuffled_tuples_of_all_data:
-        train_data_y.append([tuple_of_image_class[1]])
-
-    data_x = np.asarray(train_data_x)
-    data_y = np.asarray(train_data_y)
-    return (data_x, data_y)
-
-
-# plot diagnostic learning curves
-def summarize_diagnostics(history):
-    # plot loss
-    pyplot.subplot(211)
-    pyplot.title('Cross Entropy Loss')
-    pyplot.plot(history.history['loss'], color='blue', label='train')
-    pyplot.plot(history.history['val_loss'], color='orange', label='test')
-    # plot accuracy
-    pyplot.subplot(212)
-    pyplot.title('Classification Accuracy')
-    pyplot.plot(history.history['accuracy'], color='blue', label='train')
-    pyplot.plot(history.history['val_accuracy'], color='orange', label='test')
-    # save plot to file
-    filename = sys.argv[0].split('/')[-1]
-    pyplot.savefig(filename + '_plot.png')
-    pyplot.close()
 
 
 def main():
-    num_of_epochs = 5
-    # preparing the data
-    (data_x, data_y) = prepare_data(r"C:\Users\evgen\Desktop\data_set_for_3rdProj\train\*.jpg")
-    (val_x, val_y) = prepare_data(r"C:\Users\evgen\Desktop\data_set_for_3rdProj\validation\*.jpg")
-    (test_x, test_y) = prepare_data(r"C:\Users\evgen\Desktop\data_set_for_3rdProj\test\*.jpg")
+    ###predeclared parameters for the learning
+    batch_size = 64
+    epochs = 250
+    IMG_HEIGHT = 200
+    IMG_WIDTH = 200
+    ###all data sets will use as train set, validation set and test set
+    train_image_generator = ImageDataGenerator(
+        rescale=1. / 255,
+        rotation_range=45,
+        width_shift_range=.15,
+        height_shift_range=.15,
+        horizontal_flip=True,
+        zoom_range=0.5
+    )  # Generator for our training data
+    validation_image_generator = ImageDataGenerator(rescale=1. / 255)  # Generator for our validation data
+    test_image_generator = ImageDataGenerator(rescale=1. / 255)
+    train_data_gen = train_image_generator.flow_from_directory(batch_size=batch_size,
+                                                               directory=r"C:\Users\evgen\Desktop\data_set_for_3rdProj\train_set",
+                                                               shuffle=True,
+                                                               target_size=(IMG_HEIGHT, IMG_WIDTH),
+                                                               class_mode='binary')
+    val_data_gen = validation_image_generator.flow_from_directory(batch_size=batch_size,
+                                                                  directory=r"C:\Users\evgen\Desktop\data_set_for_3rdProj\val_set",
+                                                                  target_size=(IMG_HEIGHT, IMG_WIDTH),
+                                                                  class_mode='binary')
+    test_data_gen = test_image_generator.flow_from_directory(batch_size=batch_size,
+                                                             directory=r"C:\Users\evgen\Desktop\data_set_for_3rdProj\test_set",
+                                                             target_size=(IMG_HEIGHT, IMG_WIDTH),
+                                                             class_mode='binary')
+    ###building the model
+    model = Sequential([
+        Conv2D(16, 3, padding='same', activation='relu',
+               input_shape=(IMG_HEIGHT, IMG_WIDTH, 3)),
+        MaxPooling2D(),
+        Dropout(0.2),
+        Conv2D(32, 3, padding='same', activation='relu'),
+        MaxPooling2D(),
+        Conv2D(64, 3, padding='same', activation='relu'),
+        MaxPooling2D(),
+        Conv2D(128, 3, padding='same', activation='relu'),
+        MaxPooling2D(),
+        Dropout(0.2),
+        Flatten(),
+        Dense(512, activation='relu'),
+        Dense(1, activation='sigmoid')
+    ])
+    ###complinig the model
+    model.compile(optimizer='adam',
+                  loss='binary_crossentropy',
+                  metrics=['accuracy'])
+    history = model.fit_generator(
+        train_data_gen,
+        steps_per_epoch=6003 // batch_size,
+        epochs=epochs,
+        validation_data=val_data_gen,
+        validation_steps=2001 // batch_size
+    )
 
-    ##building the model
-    model = Sequential()
-    model.add(
-        Conv2D(32, (3, 3), activation='relu', kernel_initializer='he_uniform', padding='same',
-               input_shape=(200, 200, 3)))
-    model.add(MaxPooling2D((2, 2)))
-    model.add(Conv2D(64, (3, 3), activation='relu', kernel_initializer='he_uniform', padding='same'))
-    model.add(MaxPooling2D((2, 2)))
-    model.add(Conv2D(128, (3, 3), activation='relu', kernel_initializer='he_uniform', padding='same'))
-    model.add(MaxPooling2D((2, 2)))
-    model.add(Flatten())
-    model.add(Dense(128, activation='relu', kernel_initializer='he_uniform'))
-    model.add(Dense(1, activation='sigmoid'))
-    binary_cross_entropy_loss_func = tf.keras.losses.BinaryCrossentropy()
-    ADAM_optimizer = tf.keras.optimizers.Adam(lr=0.001)
-    model.compile(optimizer=ADAM_optimizer, loss=binary_cross_entropy_loss_func, metrics=['accuracy'])
-    history = model.fit(data_x, data_y,
-                        batch_size=64,
-                        epochs=num_of_epochs,
-                        # We pass some validation for
-                        # monitoring validation loss and metrics
-                        # at the end of each epoch
-                        validation_data=(val_x, val_y))
+    ###summary of the model after traning
     print('\nhistory dict:', history.history)
-
-
+    ###saving the model and weights as a json and h5 files
     json_str = model.to_json()
-    with open(r'C:\Users\evgen\Desktop\models\saved_model_5ep.json', 'w') as outfile:
-        json.dump(json.loads(json_str), outfile, indent=4)    # Save the json on a file
-    model.save_weights(r"C:\Users\evgen\Desktop\models\weights_5ep.h5", save_format="h5")
+    with open(r'C:\Users\evgen\Desktop\n_models\saved_model_250ep_w_dropout_data_rich.json', 'w') as outfile:
+        json.dump(json.loads(json_str), outfile, indent=4)  # Save the json on a file
+        model.save_weights(r"C:\Users\evgen\Desktop\n_models\weights_250ep_w_dropout_data_rich.h5", save_format="h5")
     print("Saved model to disk")
-    # summarize_diagnostics(history)
-
-    # Evaluate the model on the test data using `evaluate`
+    ###evaluating the model on the test data
     print('\n# Evaluate on test data')
-    results = model.evaluate(test_x, test_y, batch_size=128)
-    print('test loss, test acc:', results)
+    results_test = model.evaluate_generator(test_data_gen)
+    print('test loss, test acc:', results_test)
+    ####printing the model as a graph
+    acc = history.history['accuracy']
+    val_acc = history.history['val_accuracy']
+    loss = history.history['loss']
+    val_loss = history.history['val_loss']
+    epochs_range = range(epochs)
+    plt.figure(figsize=(6, 6))
+    plt.subplot(1, 2, 1)
+    plt.plot(epochs_range, acc, label='Training Accuracy')
+    plt.plot(epochs_range, val_acc, label='Validation Accuracy')
+    plt.legend(loc='lower right')
+    plt.title('Training and Validation Accuracy')
+    plt.subplot(1, 2, 2)
+    plt.plot(epochs_range, loss, label='Training Loss')
+    plt.plot(epochs_range, val_loss, label='Validation Loss')
+    plt.legend(loc='upper right')
+    plt.title('Training and Validation Loss')
+    plt.show()
+
 
 if __name__ == '__main__':
     main()
