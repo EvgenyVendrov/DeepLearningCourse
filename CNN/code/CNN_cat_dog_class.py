@@ -32,16 +32,16 @@ def main():
     validation_image_generator = ImageDataGenerator(rescale=1. / 255)  # Generator for our validation data
     test_image_generator = ImageDataGenerator(rescale=1. / 255)
     train_data_gen = train_image_generator.flow_from_directory(batch_size=batch_size,
-                                                               directory=r"C:\Users\evgen\Desktop\data_set_for_3rdProj\train_set",
+                                                               directory=r"C:\Users\evgen\Desktop\DL_Git_forAllProj\CNN\dataset\train_set",
                                                                shuffle=True,
                                                                target_size=(IMG_HEIGHT, IMG_WIDTH),
                                                                class_mode='binary')
     val_data_gen = validation_image_generator.flow_from_directory(batch_size=batch_size,
-                                                                  directory=r"C:\Users\evgen\Desktop\data_set_for_3rdProj\val_set",
+                                                                  directory=r"C:\Users\evgen\Desktop\DL_Git_forAllProj\CNN\dataset\val_set",
                                                                   target_size=(IMG_HEIGHT, IMG_WIDTH),
                                                                   class_mode='binary')
     test_data_gen = test_image_generator.flow_from_directory(batch_size=batch_size,
-                                                             directory=r"C:\Users\evgen\Desktop\data_set_for_3rdProj\test_set",
+                                                             directory=r"C:\Users\evgen\Desktop\DL_Git_forAllProj\CNN\dataset\train_set",
                                                              target_size=(IMG_HEIGHT, IMG_WIDTH),
                                                              class_mode='binary')
     ###building the model

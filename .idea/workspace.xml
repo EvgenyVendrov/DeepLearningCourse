@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50d5c71a-8501-414b-80d9-daaa5e399fb4" name="Default Changelist" comment="prepare data added">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CNN/code/testing_load_model_CNN.py" afterDir="false" />
+    <list default="true" id="50d5c71a-8501-414b-80d9-daaa5e399fb4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/CNN/code/ExampleForClass.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CNN/code/CNN_cat_dog_class.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN/code/CNN_cat_dog_class.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CNN/code/prepare_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN/code/prepare_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CNN/code/testing_load_model_CNN.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN/code/testing_load_model_CNN.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +15,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Python Stub" />
         <option value="Python Script" />
       </list>
     </option>
@@ -34,7 +34,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.testing_load_model_CNN">
+  <component name="RunManager" selected="Python.ExampleForClass">
     <configuration name="CNN_cat_dog_class" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="DL_Git_forAllProj" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -48,6 +48,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CNN/code/CNN_cat_dog_class.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ExampleForClass" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DL_Git_forAllProj" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CNN/code" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CNN/code/ExampleForClass.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -98,15 +119,40 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="tests" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DL_Git_forAllProj" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CNN/code" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CNN/code/tests.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.prepare_data" />
       <item itemvalue="Python.CNN_cat_dog_class" />
       <item itemvalue="Python.testing_load_model_CNN" />
+      <item itemvalue="Python.tests" />
+      <item itemvalue="Python.ExampleForClass" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.ExampleForClass" />
         <item itemvalue="Python.testing_load_model_CNN" />
         <item itemvalue="Python.CNN_cat_dog_class" />
+        <item itemvalue="Python.tests" />
         <item itemvalue="Python.prepare_data" />
       </list>
     </recent_temporary>
@@ -170,54 +216,72 @@
       <option name="presentableId" value="LOCAL‎00006" />
       <updated>1578917239022</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL‎00007" summary="prepare data added">
+      <created>1578995910980</created>
+      <option name="number" value="LOCAL‎00007" />
+      <option name="presentableId" value="LOCAL‎00007" />
+      <updated>1578995910980</updated>
+    </task>
+    <task id="LOCAL‎00008" summary="prepare data added">
+      <created>1578995971388</created>
+      <option name="number" value="LOCAL‎00008" />
+      <option name="presentableId" value="LOCAL‎00008" />
+      <updated>1578995971389</updated>
+    </task>
+    <task id="LOCAL‎00009" summary="prepare data added">
+      <created>1578996029925</created>
+      <option name="number" value="LOCAL‎00009" />
+      <option name="presentableId" value="LOCAL‎00009" />
+      <updated>1578996029925</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="constracting files" />
     <MESSAGE value="adding new files" />
-    <MESSAGE value="prepare data added" />
     <MESSAGE value="prepare data changed for the better" />
     <MESSAGE value="some new code is added" />
     <MESSAGE value="code now changed to fit TF usage which is allowed" />
-    <option name="LAST_COMMIT_MESSAGE" value="code now changed to fit TF usage which is allowed" />
+    <MESSAGE value="prepare data added" />
+    <option name="LAST_COMMIT_MESSAGE" value="prepare data added" />
   </component>
   <component name="WindowStateProjectService">
     <state x="412" y="146" width="1434" height="708" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578916161682">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="412" y="146" width="1434" height="708" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578916161682" />
-    <state x="613" y="116" key="CommitChangelistDialog2" timestamp="1578995970874">
+    <state x="613" y="116" key="CommitChangelistDialog2" timestamp="1579274906590">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="613" y="116" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1578995970874" />
-    <state width="1897" height="281" key="GridCell.Tab.0.bottom" timestamp="1578995889717">
+    <state x="613" y="116" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1579274906590" />
+    <state width="1897" height="238" key="GridCell.Tab.0.bottom" timestamp="1579274668938">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1897" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578995889717" />
-    <state width="1897" height="281" key="GridCell.Tab.0.center" timestamp="1578995889717">
+    <state width="1897" height="238" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1579274668938" />
+    <state width="1897" height="238" key="GridCell.Tab.0.center" timestamp="1579274668938">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1897" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578995889717" />
-    <state width="1897" height="281" key="GridCell.Tab.0.left" timestamp="1578995889717">
+    <state width="1897" height="238" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1579274668938" />
+    <state width="1897" height="238" key="GridCell.Tab.0.left" timestamp="1579274668938">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1897" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578995889717" />
-    <state width="1897" height="281" key="GridCell.Tab.0.right" timestamp="1578995889717">
+    <state width="1897" height="238" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1579274668938" />
+    <state width="1897" height="238" key="GridCell.Tab.0.right" timestamp="1579274668938">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1897" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578995889717" />
-    <state x="460" y="162" key="SettingsEditor" timestamp="1578911070542">
+    <state width="1897" height="238" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1579274668938" />
+    <state x="460" y="162" key="SettingsEditor" timestamp="1579024414436">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="460" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1578911070542" />
-    <state x="551" y="253" key="Vcs.Push.Dialog.v2" timestamp="1578995973572">
+    <state x="460" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1579024414436" />
+    <state x="551" y="253" key="Vcs.Push.Dialog.v2" timestamp="1579274908974">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="551" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1578995973572" />
-    <state x="655" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1578908066963">
+    <state x="551" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1579274908974" />
+    <state x="655" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1579274755300">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="655" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578908066963" />
+    <state x="655" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1579274755300" />
   </component>
 </project>
