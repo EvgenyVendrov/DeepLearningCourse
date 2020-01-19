@@ -11,11 +11,11 @@ test_data_gen = test_image_generator.flow_from_directory(batch_size=batch_size,
                                                          target_size=(IMG_HEIGHT, IMG_WIDTH),
                                                          class_mode='binary')
 
-with open(r"C:\Users\evgen\Desktop\n_models\saved_model_250ep_w_dropout_data_rich.json") as json_file:
+with open(r"C:\Users\evgen\Desktop\DL_Git_forAllProj\CNN\saved_models\saved_model_250ep_w_dropout_data_rich.json") as json_file:
     data = json.load(json_file)
     data = json.dumps(data)
     model = tf.keras.models.model_from_json(data)
-model.load_weights(r"C:\Users\evgen\Desktop\n_models\weights_250ep_w_dropout_data_rich.h5")
+model.load_weights(r"C:\Users\evgen\Desktop\DL_Git_forAllProj\CNN\saved_models\weights_250ep_w_dropout_data_rich.h5")
 model.compile(optimizer='adam',
               loss='binary_crossentropy',
               metrics=['accuracy', 'Precision', 'Recall'])
